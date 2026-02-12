@@ -120,18 +120,7 @@ mongodump --host localhost:27017 --db genomeguard --out backup/
 mongorestore --host localhost:27017 --db genomeguard backup/genomeguard/
 ```
 
-## 📝 API Documentation
 
-Once the backend is running, visit http://localhost:8000/docs for interactive API documentation.
-
-### Key Endpoints:
-- `POST /auth/register` - User registration
-- `POST /auth/token` - User login
-- `GET /auth/me` - Get current user
-- `POST /analysis/upload` - Upload VCF file
-- `GET /analysis/results/{id}` - Get analysis results
-- `GET /analysis/history` - Get user's analysis history
-- `DELETE /analysis/results/{id}` - Delete analysis
 
 ### Response Examples:
 ```json
@@ -147,10 +136,3 @@ Once the backend is running, visit http://localhost:8000/docs for interactive AP
 ```
 
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🆘 Support
-
-- **Issues**: Report bugs via GitHub Issues
-- **Documentation**: Full API docs at `/docs` endpoint
-- **Community**: Join our discussions for help and updates
