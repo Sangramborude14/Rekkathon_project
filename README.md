@@ -37,65 +37,8 @@ docker-compose up -d
 - RESTful API for integration
 - Docker containerization support
 
-## 🧠 System Workflow
-```
-User Registration/Login
-        ↓
-Upload VCF File (API)
-        ↓
-Background Processing
-        ↓
-Variant Extraction & Annotation
-        ↓
-ML Risk Prediction
-        ↓
-Store Results (MongoDB)
-        ↓
-Interactive Dashboard
-```
 
-🛠️ Tech Stack
 
-| Category | Technologies |
-|----------|-------------|
-| **Backend** | FastAPI, Python 3.11+, Pydantic |
-| **Database** | MongoDB, PyMongo |
-| **Authentication** | JWT, bcrypt, OAuth2 |
-| **ML/Analytics** | XGBoost, scikit-learn, pandas, numpy |
-| **Frontend** | Streamlit, Plotly, requests |
-| **Bioinformatics** | pysam, custom VCF processing |
-| **DevOps** | Docker, Docker Compose |
-| **Testing** | pytest, FastAPI TestClient |
-| **Logging** | loguru |
-
-📂 Project Structure
-```
-GenomeGuard/
-├── backend/                 # Backend API
-│   ├── api/                # API endpoints
-│   │   ├── auth.py        # Authentication routes
-│   │   └── analysis.py    # Analysis routes
-│   ├── models/            # Data models
-│   │   ├── database.py    # MongoDB connection
-│   │   └── schemas.py     # Pydantic schemas
-│   ├── services/          # Business logic
-│   │   ├── auth_service.py
-│   │   └── analysis_service.py
-│   └── main.py           # FastAPI application
-├── app/
-│   └── dashboard.py      # Streamlit frontend
-├── config/
-│   └── settings.py       # Configuration
-├── data/
-│   ├── uploads/          # User uploaded files
-│   └── raw/             # Sample data
-├── models/              # ML models
-├── tests/               # Test suite
-├── logs/                # Application logs
-├── docker-compose.yml   # Container orchestration
-├── Dockerfile          # Container definition
-└── requirements.txt    # Dependencies
-```
 
 ## ⚙️ Installation & Setup
 
@@ -113,31 +56,6 @@ docker-compose up -d
 # Frontend: http://localhost:8501
 # Backend API: http://localhost:8000
 # API Docs: http://localhost:8000/docs
-```
-
-### Option 2: Local Development Setup
-
-```bash
-# 1. Clone and setup environment
-git clone https://github.com/username/GenomeGuard.git
-cd GenomeGuard
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
-
-# 2. Install dependencies
-pip install -r requirements.txt
-
-# 3. Setup MongoDB
-# Install MongoDB locally or use Docker:
-docker run -d -p 27017:27017 --name genomeguard-mongo mongo:7.0
-
-# 4. Configure environment
-cp .env.example .env
-# Edit .env with your settings
-
-# 5. Start services
-python start_services.py
 ```
 
 ## ▶️ Using GenomeGuard
@@ -170,44 +88,7 @@ response = requests.post("http://localhost:8000/analysis/upload",
                         headers=headers, files=files)
 ```
 
-## 📊 Features & Capabilities
 
-### 🔐 Security Features
-- JWT-based authentication
-- Bcrypt password hashing
-- User session management
-- Secure file upload validation
-- Access control and authorization
-
-### 🧬 Genomic Analysis
-- VCF file processing and validation
-- Variant extraction and quality filtering
-- Disease-specific annotation (BRCA1/2, APOE, TP53)
-- Machine learning risk prediction
-- Comprehensive reporting
-
-### 📈 Visualization & Reports
-- Interactive risk assessment gauges
-- Variant category breakdowns
-- Historical analysis tracking
-- Detailed variant tables
-- Export capabilities
-
-### 🏗️ Architecture Benefits
-- Scalable MongoDB backend
-- RESTful API design
-- Async processing for large files
-- Containerized deployment
-- Comprehensive logging and monitoring
-
-### 🧪 Testing & Quality
-- Automated API testing with pytest
-- Code formatting with black
-- Linting with flake8
-- Environment-based configuration
-- Error handling and logging
-
-## 🔧 Development
 
 ### Prerequisites
 ```bash
@@ -265,58 +146,6 @@ Once the backend is running, visit http://localhost:8000/docs for interactive AP
 }
 ```
 
-## 🐳 Docker Commands
-
-```bash
-# Start all services
-docker-compose up -d
-
-# View logs
-docker-compose logs -f
-
-# Stop services
-docker-compose down
-
-# Rebuild containers
-docker-compose build --no-cache
-
-# Scale API instances
-docker-compose up -d --scale api=3
-```
-
-## 🔒 Security & Privacy
-
-- **Local Processing**: All genomic data processed locally
-- **Encrypted Storage**: User passwords hashed with bcrypt
-- **Access Control**: JWT-based authentication
-- **Data Isolation**: User data completely separated
-- **GDPR Compliant**: Full data deletion capabilities
-
-## 🧬 Supported Genetic Variants
-
-| Gene | Chromosome | Associated Diseases |
-|------|------------|--------------------|
-| BRCA1 | 17 | Breast/Ovarian Cancer |
-| BRCA2 | 13 | Breast/Ovarian Cancer |
-| APOE | 19 | Alzheimer's Disease |
-| TP53 | 17 | Li-Fraumeni Syndrome |
-
-## 📈 Performance
-
-- **Processing Speed**: ~1000 variants/second
-- **File Size Limit**: 100MB VCF files
-- **Concurrent Users**: Supports multiple simultaneous analyses
-- **Database**: Optimized MongoDB indexes for fast queries
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
-
-## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
